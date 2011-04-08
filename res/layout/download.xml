@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+  <ImageButton android:id="@+id/myImageButton1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/white" android:src="@drawable/go" android:layout_x="275px" android:layout_y="35px" /> 
+- <!--  建立一個WebView 
+  --> 
+  <WebView android:id="@+id/myWebView1" android:layout_height="330px" android:layout_width="300px" android:layout_x="7px" android:layout_y="90px" android:background="@drawable/black" android:focusable="false" /> 
+</LinearLayout>

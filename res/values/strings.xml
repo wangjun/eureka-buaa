@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Eureka!</string>
+    <string name="app_name">Eureka</string>
+    <string name="load">正在加载</string>
+    <string name="search">查词</string>    
+    <string name="main_search">查词</string>
+    <string name="main_learn">学习</string>
+    <string name="main_words">生词本</string>
+    <string name="main_dict">词库</string>
+    <string name="main_setting">设置</string>
+    <string name="main_help">帮助</string>  
+    <string name="wd_js">基本翻译</string>
+    <string name="wd_wlsy">网络释义</string> 
+    <string name="search_return_main">主菜单</string>
+    <string name="search_goto_words">生词本</string> 
+    <string name="main_exit">退出</string>  
+    
+</resources>

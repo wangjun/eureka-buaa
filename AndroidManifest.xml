@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="cn.edu.buaa.soft.eureka" android:versionCode="1"
+	android:versionName="1.0">
+	<!-- 往SDCard写入数据权限 -->
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<!-- 在SDCard中创建与删除文件权限 -->
+	<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+	<application android:icon="@drawable/icon" android:label="@string/app_name"
+		android:debuggable="true">
+
+		<activity android:name=".db.DictSearchUtil"
+			android:label="@string/search">
+			<!-- activity 权限设置 -->
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+					
+		</activity>
+
+		<activity android:name=".db.DownloadDictActivity"></activity>
+		
+		<activity android:name=".ui.MainActivity"
+                  android:label="@string/app_name">
+              <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+              </intent-filter>   
+        </activity>
+        
+        <activity android:name=".ui.SearchActivity"
+                  android:label="@string/app_name"> 
+                  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />           
+        </activity>
+        
+        <activity android:name=".ui.WordDetailActivity"
+                  android:label="@string/app_name">                         
+        </activity>
+		
+
+	</application>
+	<uses-sdk android:minSdkVersion="3" />
+	<!--<uses-sdk android:minSdkVersion="3" android:targetSdkVersion="7" />-->
+
+
+</manifest> 
