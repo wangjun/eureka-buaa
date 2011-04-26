@@ -50,7 +50,7 @@ public class DictSearchUtil extends Activity{
 	 * @return true for normal otherwise, false
 	 */
 	public boolean importDatabase(String dbfile) {
-		final int BUFFER_SIZE = 10240;
+		final int BUFFER_SIZE = 4 * 1024;  //4k 
 		try {
 			if (Environment.getExternalStorageState().equals(
 					Environment.MEDIA_MOUNTED)

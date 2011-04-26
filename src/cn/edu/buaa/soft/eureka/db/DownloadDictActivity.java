@@ -21,7 +21,8 @@ public class DownloadDictActivity extends Activity {
 	private ImageButton mImageButton1;
 	private String TAG = "myActivity";
 	//String uriStr = "http://127.0.0.1:80/download.html";
-	String uriStr = "10.0.2.2/download.html";
+	String uriStr = "http://10.0.2.2/download.html";
+	//String uriStr = "http://192.168.3.41:80/download.html"; //Tomcat:8080
 
 	/** Called when the activity is first created. */
 	@Override

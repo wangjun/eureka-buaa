@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import cn.edu.buaa.soft.eureka.R;
+import cn.edu.buaa.soft.eureka.db.DownloadDictActivity;
 
 public class MainActivity extends Activity {
     /** Called when the activity is first created. */
@@ -58,6 +59,7 @@ public class MainActivity extends Activity {
     //为控件绑定事件
     private void bind(){
     	this.btnSearch.setOnClickListener(new SearchButtonListener());
+    	this.btnDict.setOnClickListener(new DictLibButtonListener());
     }
     
     //初始化控件
@@ -81,4 +83,14 @@ public class MainActivity extends Activity {
 			
 		}
 	}
-}
+    class DictLibButtonListener implements OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+			//跳转到下载界面
+			Intent intent = new Intent();			
+			intent.setClass(MainActivity.this, DownloadDictActivity.class);
+			MainActivity.this.startActivity(intent);
+		}			
+		} 	
+    }
