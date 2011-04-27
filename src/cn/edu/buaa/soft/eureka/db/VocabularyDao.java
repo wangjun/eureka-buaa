@@ -66,10 +66,10 @@ public class VocabularyDao {
 	 * @return 单词数组
 	 */
 	public VocabularyEntry[] findVocabularyByPrefix(String quesPrefix) {
-		/*if (quesPrefix.length() <= 1) { // 前缀只有一个字母时返回空集
+		if (quesPrefix.length() <= 1) { // 前缀只有一个字母时返回空集
 			return null;
 		} 
-		else {*/
+		else {
 			SortedSet<VocabularyEntry> vocabularySet = new TreeSet<VocabularyEntry>();
 			for (int i = 0; i < helpers.size(); i++) {
 				SQLiteDatabase db = helpers.get(i).getReadableDatabase();
@@ -102,8 +102,7 @@ public class VocabularyDao {
 				ves[i] = (VocabularyEntry)objs[i];
 			}
 			return ves;
-		/*}
-		return null;*/
+		}
 	}
 
 

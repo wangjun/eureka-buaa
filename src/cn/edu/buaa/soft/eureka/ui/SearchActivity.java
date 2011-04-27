@@ -91,10 +91,10 @@ public class SearchActivity extends Activity {
 				   Intent i = new Intent();
 				   i.setClass(SearchActivity.this, WordDetailActivity.class);				   
 				   if(id >= 0){
-					   i.putExtra("word", list.get((int)id));
+					   i.putExtra("word", ves[(int)id].question);
 					   
 					   //cursor = dsu.searchTranslation(list.get((int)id), Constants.DICT_TB_NAME);
-					   i.putExtra("explan", dsu.searchTranslation(list.get((int)id), Constants.DICT_TB_NAME));
+					   i.putExtra("explan", ves[(int)id].answer);
 				   }
 				   startActivity(i);
 			  }
@@ -154,10 +154,10 @@ public class SearchActivity extends Activity {
 		// cursor = dsu.get_words_withPrefix(this.etWord.getText().toString());
 		// list = dsu.getWordList(cursor);
 
-		VocabularyEntry[] ves = vd.findVocabularyByPrefix(this.etWord.getText()
+		ves = vd.findVocabularyByPrefix(this.etWord.getText()
 				.toString());
-		if (ves.length >= 1) {
-			list = new ArrayList<String>();
+		if (ves != null) {			
+			List<String> list = new ArrayList<String>();
 			for (VocabularyEntry ve : ves) {
 				list.add(ve.question);
 			}
@@ -179,7 +179,8 @@ public class SearchActivity extends Activity {
 	private SQLiteDatabase db;	
 	private String tempKey = "by and large";
 	private Cursor cursor = null;	
-	private List<String> list;   //保存单词问题列表
+	VocabularyEntry[] ves = null; //根据前缀返回的单词对象的数组
+	//private List<String> list;   //保存单词问题列表
 	private ListView lvWords; //显示单词列表
 	private EditText etWord;  //单词输入框
 	private VocabularyDao vd = null;
