@@ -5,6 +5,7 @@ package cn.edu.buaa.soft.eureka.ui;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -22,20 +23,22 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
-import cn.edu.buaa.soft.eureka.Constants;
 import cn.edu.buaa.soft.eureka.R;
-import cn.edu.buaa.soft.eureka.Utils;
+import cn.edu.buaa.soft.eureka.common.Constants;
+import cn.edu.buaa.soft.eureka.common.Utils;
+import cn.edu.buaa.soft.eureka.common.VocabularyEntry;
 import cn.edu.buaa.soft.eureka.db.DictionaryOpenHelper;
 import cn.edu.buaa.soft.eureka.db.DictSearchUtil;
+import cn.edu.buaa.soft.eureka.db.VocabularyDao;
 
 public class SearchActivity extends Activity {
 		
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.search);
-	    
+	    	   
 	    controlInit();
-	    loadData();	    
+	    loadData();	
 	}
 	
 	
@@ -127,44 +130,60 @@ public class SearchActivity extends Activity {
 	 * 加载词典数据
 	 */
 	private void loadData(){		
-		try {
-			// 初始化数据库辅助对象
-			helper = new DictionaryOpenHelper(this);
-			dsu = new DictSearchUtil(helper);
-			// 创建/sdCard/Eureka文件夹
+		
+			
 			String sdCardDir = Utils.getExternalStoragePath();
 			Utils.createFolder(sdCardDir, "Eureka");
 			// 导入数据库文件
 			String dbfile = Utils.getEurekaPath() + File.separator
 					+ Constants.DB_NAME;
+			dsu = new DictSearchUtil();
 			dsu.importDatabase(dbfile);
 			Log.d(Constants.TAG, "imported database");			
-		
+			
+			this.vd = new VocabularyDao(this,dbNames);
 			//dsu.showResult(cursor);										
 
-		} finally {			
-			
-		}
+		
 	}
 	
 	/**
 	 * 动态填充ListView
 	 */
 	private void fillListView() {
-		cursor = dsu.get_words_withPrefix(this.etWord.getText().toString());
-		list = dsu.getWordList(cursor);
-		ArrayAdapter listAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, list); 		
-		lvWords.setAdapter(listAdapter);
+		// cursor = dsu.get_words_withPrefix(this.etWord.getText().toString());
+		// list = dsu.getWordList(cursor);
+
+		VocabularyEntry[] ves = vd.findVocabularyByPrefix(this.etWord.getText()
+				.toString());
+		if (ves.length >= 1) {
+			list = new ArrayList<String>();
+			for (VocabularyEntry ve : ves) {
+				list.add(ve.question);
+			}
+			ArrayAdapter listAdapter = new ArrayAdapter(this,
+					android.R.layout.simple_list_item_1, list);
+			lvWords.setAdapter(listAdapter);
+		}
 	}
 	
+	@Override
+	protected void onDestroy() {
+		vd.closeDB();
+		super.onDestroy();
+	}
+
+
 	private DictionaryOpenHelper helper;
-	DictSearchUtil dsu;
+	DictSearchUtil dsu = null;
 	private SQLiteDatabase db;	
 	private String tempKey = "by and large";
 	private Cursor cursor = null;	
-	private ArrayList<String> list;
+	private List<String> list;   //保存单词问题列表
 	private ListView lvWords; //显示单词列表
 	private EditText etWord;  //单词输入框
+	private VocabularyDao vd = null;
+	private String[] dbNames = {"cet4_phrases.db","VOA.XML.db"};	
 	
 	
 }

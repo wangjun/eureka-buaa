@@ -6,10 +6,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import cn.edu.buaa.soft.eureka.Constants;
 import cn.edu.buaa.soft.eureka.R;
 import cn.edu.buaa.soft.eureka.R.raw;
-import cn.edu.buaa.soft.eureka.Utils;
+import cn.edu.buaa.soft.eureka.common.Constants;
+import cn.edu.buaa.soft.eureka.common.Utils;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
@@ -19,7 +19,7 @@ import android.util.Log;
 
 public class DictionaryOpenHelper extends SDSQLiteOpenHelper {
 	/**
-	 * 代表数据库
+	 * 自定义词库帮助类
 	 */
 	
 	public static int DB_VERSION = 1;
@@ -27,6 +27,12 @@ public class DictionaryOpenHelper extends SDSQLiteOpenHelper {
 
 	public DictionaryOpenHelper(Context context) {
 		super(context, Constants.DB_NAME, null, DB_VERSION);
+	}
+	public DictionaryOpenHelper(Context context,int version) {
+		super(context, Constants.DB_NAME, null, version);
+	}
+	public DictionaryOpenHelper(Context context,String dbName) {
+		super(context,dbName, null, DB_VERSION);
 	}
 
 	@Override

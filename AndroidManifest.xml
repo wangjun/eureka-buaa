@@ -11,7 +11,8 @@
 
 	<application android:icon="@drawable/icon" android:label="@string/app_name"
 		android:debuggable="true">
-
+		<!-- 引入单元测试库 -->
+		<uses-library android:name="android.test.runner" />
 		<activity android:name=".db.DictSearchUtil"
 			android:label="@string/search">
 			<!-- activity 权限设置 -->
@@ -40,8 +41,9 @@
 		
 
 	</application>
+	<instrumentation android:name="android.test.InstrumentationTestRunner"
+       android:targetPackage="cn.edu.buaa.soft.eureka" android:label="Tests for My App" />
 	<uses-sdk android:minSdkVersion="3" />
 	<!--<uses-sdk android:minSdkVersion="3" android:targetSdkVersion="7" />-->
-
 
 </manifest> 

@@ -1,7 +1,8 @@
-package cn.edu.buaa.soft.eureka;
+package cn.edu.buaa.soft.eureka.common;
 
 import java.io.File;
 import java.util.List;
+
 
 import android.os.Environment;
 import android.os.StatFs;

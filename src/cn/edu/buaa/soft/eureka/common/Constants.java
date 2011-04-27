@@ -1,4 +1,4 @@
-package cn.edu.buaa.soft.eureka;
+package cn.edu.buaa.soft.eureka.common;
 
 public interface Constants {
 	/**

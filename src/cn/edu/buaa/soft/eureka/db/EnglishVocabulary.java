@@ -2,7 +2,7 @@ package cn.edu.buaa.soft.eureka.db;
 
 import java.util.ArrayList;
 
-import cn.edu.buaa.soft.eureka.VocabularyEntry;
+import cn.edu.buaa.soft.eureka.common.VocabularyEntry;
 
 public class EnglishVocabulary extends VocabularyEntry {
 	/**
@@ -19,7 +19,7 @@ public class EnglishVocabulary extends VocabularyEntry {
 		
 	}
 
-	@Override
+/*	@Override
 	public boolean store_to_newWordBook() {
 		// TODO Auto-generated method stub
 		return false;
@@ -35,6 +35,6 @@ public class EnglishVocabulary extends VocabularyEntry {
 	public ArrayList<String> getQuestions_withPrefix(String prefix) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
 }

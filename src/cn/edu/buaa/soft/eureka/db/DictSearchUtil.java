@@ -17,10 +17,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.TextView;
-import cn.edu.buaa.soft.eureka.Constants;
 import cn.edu.buaa.soft.eureka.R;
-import cn.edu.buaa.soft.eureka.Utils;
-import cn.edu.buaa.soft.eureka.VocabularyEntry;
+import cn.edu.buaa.soft.eureka.common.Constants;
+import cn.edu.buaa.soft.eureka.common.Utils;
+import cn.edu.buaa.soft.eureka.common.VocabularyEntry;
 
 /**
  * @author Chen Jin
@@ -39,8 +39,8 @@ public class DictSearchUtil extends Activity{
 	Cursor cursor = null;
 	String tempPrefix = "a";
 
-	public DictSearchUtil(DictionaryOpenHelper doh){
-		this.helper = doh;		
+	public DictSearchUtil(){
+				
 	}
 	
 	/**

@@ -2,7 +2,7 @@ package cn.edu.buaa.soft.eureka.db;
 
 import java.io.File;
 
-import cn.edu.buaa.soft.eureka.Constants;
+import cn.edu.buaa.soft.eureka.common.Constants;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -71,6 +71,7 @@ public abstract class SDSQLiteOpenHelper {
      * @return a read/write database object valid until {@link #close} is called  
      */ 
     public synchronized SQLiteDatabase getWritableDatabase() {  
+    	System.out.println("getWritableDatabase");
         if (mDatabase != null && mDatabase.isOpen() && !mDatabase.isReadOnly()) {  
             return mDatabase; // The database is already open for business  
    
@@ -152,7 +153,8 @@ public abstract class SDSQLiteOpenHelper {
      * @return a database object valid until {@link #getWritableDatabase} or  
      *         {@link #close} is called.  
      */ 
-    public synchronized SQLiteDatabase getReadableDatabase() {  
+    public synchronized SQLiteDatabase getReadableDatabase() { 
+    	System.out.println("getWritableDatabase");
         if (mDatabase != null && mDatabase.isOpen()) {  
             return mDatabase; // The database is already open for business  
    
@@ -165,10 +167,10 @@ public abstract class SDSQLiteOpenHelper {
    
         try {  
             return getWritableDatabase();  
-        } catch (SQLiteException e) {  
+        }
+        catch (SQLiteException e) {  
             if (mName == null)  
                 throw e; // Can't open a temp database read-only!  
-   
             Log.e(TAG, "Couldn't open " + mName  
                     + " for writing (will try read-only):", e);  
         }  
@@ -177,6 +179,7 @@ public abstract class SDSQLiteOpenHelper {
         try {  
             mIsInitializing = true;  
             String path = getDatabasePath(mName).getPath();  
+            System.out.println(path);
             db = SQLiteDatabase.openDatabase(path, mFactory,  
                     SQLiteDatabase.OPEN_READWRITE);  
             if (db.getVersion() != mNewVersion) {  
