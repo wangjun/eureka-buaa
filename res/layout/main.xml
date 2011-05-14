@@ -2,8 +2,10 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"   
 	android:layout_width="fill_parent"    
 	android:layout_height="fill_parent"  
-	android:background="#ffffff" 	
-	>    	
+	android:background="@drawable/bg"
+	android:orientation="horizontal"
+	android:padding="20px"
+	> 
 	
 	<TableRow>
 		<ImageButton  
@@ -12,15 +14,17 @@
 		    android:id="@+id/main_btn_search"
 		    android:src="@drawable/search"
 		    android:padding="20dip"	
-		    android:background="#ffffff"	    
+		     android:background="@android:color/transparent"
+		    		    	    
 	    />   	    
 	    <ImageButton  
 		    android:layout_width="wrap_content" 
 		    android:layout_height="wrap_content" 		    
 		    android:id="@+id/main_btn_words"
 		    android:src="@drawable/words"
-		    android:padding="20dip"
-		    android:background="#ffffff"
+		    android:padding="20dip"		
+		     android:background="@android:color/transparent"
+		        
 	    /> 
 	    <ImageButton  
 		    android:layout_width="wrap_content" 
@@ -28,7 +32,8 @@
 		    android:id="@+id/main_btn_learn"
 		    android:src="@drawable/learn"
 		    android:padding="20dip"	
-		    android:background="#ffffff"	    
+		     android:background="@android:color/transparent"
+		    		    	   
 	    />              
 	</TableRow>
 	<TableRow>
@@ -39,7 +44,7 @@
 		    android:text="@string/main_search"
 		    android:padding="20dip"
 		    android:gravity="center"	
-		    android:background="#ffffff"
+		   
 		    android:textColor="#000000"
 		/>	
 		<TextView
@@ -49,7 +54,7 @@
 		    android:text="@string/main_words"
 		    android:padding="20dip"	
 		    android:gravity="center"
-		    android:background="#ffffff"
+		    
 		    android:textColor="#000000"
 		/>	
 		<TextView
@@ -59,7 +64,7 @@
 		    android:text="@string/main_learn"
 		    android:padding="20dip"	
 		    android:gravity="center"
-		    android:background="#ffffff"
+		    
 		    android:textColor="#000000"
 		/>	
 	</TableRow>
@@ -70,7 +75,7 @@
 		    android:id="@+id/main_btn_dict"
 		    android:src="@drawable/dict"
 		    android:padding="20dip"
-		    android:background="#ffffff"
+		    android:background="@android:color/transparent"
 	    />
 		 <ImageButton  
 		    android:layout_width="wrap_content" 
@@ -78,7 +83,7 @@
 		    android:id="@+id/main_btn_setting"
 		    android:src="@drawable/setting"
 		    android:padding="20dip"
-		    android:background="#ffffff"
+		    android:background="@android:color/transparent"
 	    />
 	     <ImageButton  
 		    android:layout_width="wrap_content" 
@@ -86,7 +91,7 @@
 		    android:id="@+id/main_btn_help"
 		    android:src="@drawable/help"
 		    android:padding="20dip"	
-		    android:background="#ffffff"	    
+		    android:background="@android:color/transparent"
 	    />
 	</TableRow>
 	<TableRow>
@@ -97,7 +102,7 @@
 		    android:text="@string/main_dict"
 		    android:padding="20dip"
 		    android:gravity="center"
-		    android:background="#ffffff"
+		    
 		    android:textColor="#000000"	
 		/>	
 		<TextView
@@ -107,7 +112,7 @@
 		    android:text="@string/main_setting"
 		    android:padding="20dip"	
 		    android:gravity="center"
-		    android:background="#ffffff"
+		   
 		    android:textColor="#000000"
 		/>	
 		<TextView
@@ -117,7 +122,7 @@
 		    android:text="@string/main_help"
 		    android:padding="20dip"	
 		    android:gravity="center"
-		    android:background="#ffffff"
+		    
 		    android:textColor="#000000"
 		/>
 	</TableRow>

@@ -1,8 +1,11 @@
 package cn.edu.buaa.soft.eureka.common;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
-
 
 import android.os.Environment;
 import android.os.StatFs;
@@ -130,6 +133,47 @@ public class Utils {
 		return availableSpare;
 
 	}
+		
+	/**
+	 * 在SD卡上创建文件
+	 * 
+	 * @throws IOException
+	 */
+	public File creatSDFile(String fileName) throws IOException {
+		File file = new File(fileName);
+		System.out.println("chenxu+utils: "+fileName);
+		file.createNewFile();
+		return file;
+	}
+	
+	/**
+	 * 将一个InputStream里面的数据写入到SD卡中
+	 */
+	public File write2SDFromInput(String path,String fileName,InputStream input){
+		File file = null;
+		OutputStream output = null;
+		try{						
+			file = creatSDFile(path + fileName);			
+			output = new FileOutputStream(file);
+			byte buffer [] = new byte[4 * 1024];
+			while((input.read(buffer)) != -1){
+				output.write(buffer);
+			}
+			output.flush();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			try{
+				output.close();
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		return file;
+	}
 	
 	public static void myLog(String meg){
 		Log.d(Constants.TAG,meg);
@@ -144,6 +188,8 @@ public class Utils {
 			Log.d(Constants.TAG,list.get(i));
 		}
 	}
+	
+	
 
 	public static void main(String[] args) {
 		// for testing

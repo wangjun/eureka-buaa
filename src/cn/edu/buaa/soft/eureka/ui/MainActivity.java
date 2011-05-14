@@ -60,6 +60,7 @@ public class MainActivity extends Activity {
     private void bind(){
     	this.btnSearch.setOnClickListener(new SearchButtonListener());
     	this.btnDict.setOnClickListener(new DictLibButtonListener());
+    	this.btnSetting.setOnClickListener(new SettingButtonListener());
     }
     
     //初始化控件
@@ -69,7 +70,7 @@ public class MainActivity extends Activity {
     	this.btnDict = (ImageButton)findViewById(R.id.main_btn_dict);
     	this.btnWords = (ImageButton)findViewById(R.id.main_btn_words);
     	this.btnSetting = (ImageButton)findViewById(R.id.main_btn_setting);
-    	this.btnHelp = (ImageButton)findViewById(R.id.main_btn_help);
+    	this.btnHelp = (ImageButton)findViewById(R.id.main_btn_help);    	    	
     }
     
     //查询按钮点击事件监听器
@@ -83,13 +84,23 @@ public class MainActivity extends Activity {
 			
 		}
 	}
+    class SettingButtonListener implements OnClickListener {
+    	@Override
+		public void onClick(View v) {		
+			Intent intent = new Intent();			
+			intent.setClass(MainActivity.this, SettingActivity.class);
+			//跳转到设置界面
+			MainActivity.this.startActivity(intent);
+			
+		}
+	}
     class DictLibButtonListener implements OnClickListener{
 
 		@Override
 		public void onClick(View v) {
-			//跳转到下载界面
+			//跳转到词典管理界面
 			Intent intent = new Intent();			
-			intent.setClass(MainActivity.this, DownloadDictActivity.class);
+			intent.setClass(MainActivity.this, DictsManagerActivity.class);
 			MainActivity.this.startActivity(intent);
 		}			
 		} 	

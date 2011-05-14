@@ -21,7 +21,7 @@ import cn.edu.buaa.soft.eureka.common.Constants;
 public class WordDetailActivity extends Activity {
 	  private TextToSpeech tts;
 		 private ImageButton btnVoice;
-		 private Button btnLwsy;
+		 //private Button btnLwsy;
 		 private TextView tvExplanation;
 		 private TextView tvWord;
 
@@ -36,12 +36,12 @@ public class WordDetailActivity extends Activity {
 	    }
 	 
 	 private void init(){
-		 btnVoice = (ImageButton)this.findViewById(R.id.wd_btn_voice);
+		 btnVoice = (ImageButton)this.findViewById(R.id.imb_voice);
 		 
 		 //voice布局还需要调整，暂时不显示
 		 btnVoice.setVisibility(View.VISIBLE);
 		 
-		 tvExplanation = (TextView)this.findViewById(R.id.wd_js);
+		 tvExplanation = (TextView)this.findViewById(R.id.tv_explanation);
 		 tvWord = (TextView)this.findViewById(R.id.wd_word);
 		    /* 传入context及OnInitListener */
 		    tts = new TextToSpeech(this, ttsInitListener);

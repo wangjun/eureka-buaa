@@ -1,28 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:stretchColumns="0,1,2" android:shrinkColumns="1,2">
+ <!-- 	android:layout_above 将该控件的底部至于给定ID的控件之上
+		android:layout_below 将该控件的顶部至于给定ID的控件之下
+		android:layout_toLeftOf 将该控件的右边缘和给定ID的控件的左边缘对齐
+		android:layout_toRightOf 将该控件的左边缘和给定ID的控件的右边缘对齐
 
+		android:layout_alignBaseline 该控件的baseline和给定ID的控件的baseline对齐
+		android:layout_alignBottom 将该控件的底部边缘与给定ID控件的底部边缘
+		android:layout_alignLeft 将该控件的左边缘与给定ID控件的左边缘对齐
+		android:layout_alignRight 将该控件的右边缘与给定ID控件的右边缘对齐
+		android:layout_alignTop 将给定控件的顶部边缘与给定ID控件的顶部对齐
+
+
+		android:alignParentBottom 如果该值为true，则将该控件的底部和父控件的底部对齐
+		android:layout_alignParentLeft 如果该值为true，则将该控件的左边与父控件的左边对齐
+		android:layout_alignParentRight 如果该值为true，则将该控件的右边与父控件的右边对齐
+		android:layout_alignParentTop 如果该值为true，则将空间的顶部与父控件的顶部对齐
+
+		android:layout_centerHorizontal 如果值为真，该控件将被至于水平方向的中央
+		android:layout_centerInParent 如果值为真，该控件将被至于父控件水平方向和垂直方向的中央
+		android:layout_centerVertical 如果值为真，该控件将被至于垂直方向的中央
+	
+  --> 
+  <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background = "@android:color/background_light"
+    android:scrollbars="vertical">
+	<RelativeLayout  
+		android:layout_width="fill_parent"    
+		android:layout_height="fill_parent"    
+		android:background = "@android:color/background_light"
+		android:padding="10px">	
+	    <!--		
+		
 	<TableRow>
-		<TextView android:text="@+id/TextView01"
-			android:layout_width="fill_parent" android:id="@+id/wd_word"
-			android:layout_height="wrap_content"></TextView>
-		<ImageButton android:layout_height="20px"
-			android:layout_width="10px" android:id="@+id/wd_btn_voice"
-			android:src="@drawable/voice"></ImageButton>
+	<TextView
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"   
+	    android:id="@+id/wd_js"
+	    android:text="@string/wd_js"
+	    />	
+	</TableRow>
+	
+	<TableRow>		
+		<ListView
+		    android:id="@+id/lv_explanation"
+		    android:layout_width="fill_parent" 
+		    android:layout_height="wrap_content" 
+		/>
 	</TableRow>
 	<TableRow>
-		<TextView android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:id="@+id/wd_js"
-			android:text="@string/wd_js" />
+		<Button  
+		    android:layout_width="wrap_content" 
+		    android:layout_height="wrap_content" 		    
+		    android:id="@+id/wd_btn_wlsy"
+		    android:text="@string/wd_wlsy"		    
+	    />   	
 	</TableRow>
-	<TableRow>
-		<ListView android:id="@+id/lv_explanation"
-			android:layout_width="fill_parent" android:layout_height="wrap_content" />
-	</TableRow>
-	<TableRow>
-		<Button android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:id="@+id/wd_btn_wlsy"
-			android:text="@string/wd_wlsy" />
-	</TableRow>
-</TableLayout>
+-->
+	<TextView  android:id="@+id/wd_word"
+		android:textColor="@drawable/black"
+		android:textSize="30sp" android:text="keyword" android:textStyle="bold" 
+		android:layout_height="wrap_content" android:layout_width="wrap_content" 
+		android:layout_alignParentLeft="true"></TextView>
+	<ImageButton android:id="@+id/imb_voice" 
+		android:layout_height="35dip" android:layout_width="35dip"	
+		android:src="@android:drawable/ic_btn_speak_now" 
+		android:layout_toRightOf="@id/wd_word"
+		android:layout_marginLeft="10px"></ImageButton>	
+	<TextView android:id="@+id/tv_explanation"
+		  android:layout_width="fill_parent"  android:layout_height="wrap_content"
+		  		android:textColor="@drawable/black" 	android:textSize="15sp"
+		  		android:layout_below="@+id/imb_voice"
+		  		android:text="@string/wd_js" android:layout_marginTop="10px" ></TextView>	\
+
+	<Button android:id="@+id/btn_wlsy"
+		    android:layout_width="75px" 
+		    android:layout_height="40px"     	    
+		    android:text="@string/wd_wlsy"
+		    android:gravity="center"
+		    android:layout_below ="@id/tv_explanation"	
+		    android:layout_marginTop="10px"
+		    android:layout_centerHorizontal="true"></Button>  
+
+</RelativeLayout >
+ </ScrollView>
+
